@@ -22,10 +22,6 @@ class BinanceExchange(ExchangeBase):
         self.logger = logger
         if self.logger:
             self.logger.info("Initializing Binance Exchange")
-        self.quantity_precisions = self.get_binance_spot_quantity_precisions()
-        if self.logger:
-            self.logger.info(f"Loaded {len(self.quantity_precisions)} quantity precisions from Binance")
-
 
     @retry(max_retries=MAX_RETRIES, delay=SLEEP_TIME)
     @binance_health_check()

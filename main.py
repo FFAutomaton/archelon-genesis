@@ -5,12 +5,11 @@ from common.static_logger import get_logger_
 
 
 if __name__ == '__main__':
-    try:
-        LOOP_SECS = 2
-        TOKEN = os.environ.get("TOKEN", "AVAXUSDT")
+    LOOP_SECS = 2
+    TOKEN = os.environ.get("TOKEN", "AVAXUSDT")
 
-        logger = get_logger_(TOKEN)
-        logger.info(f"Starting Archelon Genesis for {TOKEN}")
+    logger = get_logger_(TOKEN)
+    logger.info(f"Starting Archelon Genesis for {TOKEN}")
 
-        secrets = {"api_key": API_KEY, "api_secret": API_SECRET}
-        exchange = BinanceExchange(secrets, logger)
+    secrets = {"api_key": API_KEY, "api_secret": API_SECRET}
+    exchange = BinanceExchange(secrets, logger)
