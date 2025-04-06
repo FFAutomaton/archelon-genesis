@@ -1,0 +1,635 @@
+{
+  "current_candle_index": 0,
+  "current_timestamp": null,
+  "current_symbol": "AVAXUSDT",
+  "current_interval": "1h",
+  "price_points_returned": {
+    "AVAXUSDT_1h": [
+      {
+        "timestamp": "2025-03-27T00:00:00",
+        "price": 22.167,
+        "is_high": false,
+        "is_low": false,
+        "is_open": true,
+        "is_close": false,
+        "point_index": 0,
+        "total_points": 60
+      }
+    ]
+  },
+  "high_touched": {
+    "AVAXUSDT_1h": false
+  },
+  "low_touched": {
+    "AVAXUSDT_1h": false
+  },
+  "simulation_progress": {
+    "AVAXUSDT_1h": {
+      "candle_index": 0,
+      "point_index": 1,
+      "total_candles": 241,
+      "price_points": [
+        {
+          "timestamp": "2025-03-27T00:00:00",
+          "price": 22.167,
+          "is_high": false,
+          "is_low": false,
+          "is_open": true,
+          "is_close": false,
+          "point_index": 0,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:01:01.016932",
+          "price": 22.166,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 1,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:02:02.033864",
+          "price": 22.168,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 2,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:03:03.050797",
+          "price": 22.17,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 3,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:04:04.067729",
+          "price": 22.17,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 4,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:05:05.084661",
+          "price": 22.174,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 5,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:06:06.101593",
+          "price": 22.174,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 6,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:07:07.118525",
+          "price": 22.175,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 7,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:08:08.135458",
+          "price": 22.175,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 8,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:09:09.152390",
+          "price": 22.175,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 9,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:10:10.169322",
+          "price": 22.179,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 10,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:11:11.186254",
+          "price": 22.178,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 11,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:12:12.203186",
+          "price": 22.179,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 12,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:13:13.220119",
+          "price": 22.182,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 13,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:14:14.237051",
+          "price": 22.181,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 14,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:15:15.253983",
+          "price": 22.184,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 15,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:16:16.270915",
+          "price": 22.186,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 16,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:17:17.287847",
+          "price": 22.184,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 17,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:18:18.304780",
+          "price": 22.186,
+          "is_high": true,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 18,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:19:19.321712",
+          "price": 22.145,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 19,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:20:20.338644",
+          "price": 22.181,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 20,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:21:21.355576",
+          "price": 22.178,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 21,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:22:22.372508",
+          "price": 22.158,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 22,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:23:23.389441",
+          "price": 22.14,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 23,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:24:24.406373",
+          "price": 22.092,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 24,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:25:25.423305",
+          "price": 22.078,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 25,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:26:26.440237",
+          "price": 22.083,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 26,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:27:27.457169",
+          "price": 22.067,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 27,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:28:28.474102",
+          "price": 22.05,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 28,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:29:29.491034",
+          "price": 22.056,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 29,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:30:30.507966",
+          "price": 21.993,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 30,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:31:31.524898",
+          "price": 22.012,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 31,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:32:32.541831",
+          "price": 21.972,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 32,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:33:33.558763",
+          "price": 21.97,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 33,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:34:34.575695",
+          "price": 21.996,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 34,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:35:35.592627",
+          "price": 21.932,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 35,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:36:36.609559",
+          "price": 21.935,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 36,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:37:37.626492",
+          "price": 21.945,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 37,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:38:38.643424",
+          "price": 21.941,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 38,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:39:39.660356",
+          "price": 21.884,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 39,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:40:40.677288",
+          "price": 21.856,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 40,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:41:41.694220",
+          "price": 21.9,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 41,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:42:42.711153",
+          "price": 21.887,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 42,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:43:43.728085",
+          "price": 21.849,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 43,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:44:44.745017",
+          "price": 21.836,
+          "is_high": false,
+          "is_low": true,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 44,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:45:45.761949",
+          "price": 21.874,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 45,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:46:46.778881",
+          "price": 21.861,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 46,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:47:47.795814",
+          "price": 21.907,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 47,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:48:48.812746",
+          "price": 21.885,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 48,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:49:49.829678",
+          "price": 21.909,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 49,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:50:50.846610",
+          "price": 21.963,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 50,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:51:51.863542",
+          "price": 21.971,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 51,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:52:52.880475",
+          "price": 22.0,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 52,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:53:53.897407",
+          "price": 21.974,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 53,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:54:54.914339",
+          "price": 21.992,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 54,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:55:55.931271",
+          "price": 22.036,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 55,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:56:56.948203",
+          "price": 22.068,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 56,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:57:57.965136",
+          "price": 22.038,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 57,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:58:58.982068",
+          "price": 22.079,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": false,
+          "point_index": 58,
+          "total_points": 60
+        },
+        {
+          "timestamp": "2025-03-27T00:59:59.999000",
+          "price": 22.098,
+          "is_high": false,
+          "is_low": false,
+          "is_open": false,
+          "is_close": true,
+          "point_index": 59,
+          "total_points": 60
+        }
+      ]
+    }
+  }
+}
