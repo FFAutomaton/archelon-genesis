@@ -16,12 +16,16 @@ Archelon Genesis provides a realistic market data simulation environment for dev
 
 ## Installation
 
-### Prerequisites
+You can install and run Archelon Genesis either directly on your system or using Docker.
+
+### Option 1: Direct Installation
+
+#### Prerequisites
 
 - Python 3.11+
 - Git
 
-### Setup
+#### Setup
 
 1. Clone the repository:
    ```bash
@@ -45,6 +49,51 @@ Archelon Genesis provides a realistic market data simulation environment for dev
    python record_data.py AVAXUSDT 1h
    ```
    This will download hourly data for AVAXUSDT. You can specify other symbols and intervals as needed.
+
+### Option 2: Using Docker
+
+#### Prerequisites
+
+- Docker
+- Git
+
+#### Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/archelon-genesis.git
+   cd archelon-genesis
+   ```
+
+2. Download historical data (before building the Docker image):
+   ```bash
+   # If you have Python installed locally
+   pip install python-binance pandas
+   python record_data.py AVAXUSDT 1h
+   ```
+
+3. Build the Docker image:
+   ```bash
+   # Using the provided script
+   ./docker-build.sh
+
+   # Or manually
+   docker build -t archelon-genesis:latest .
+   ```
+
+4. Run the Docker container:
+   ```bash
+   # Using the provided script
+   ./docker-run.sh
+
+   # Or manually
+   docker run -d --name archelon-genesis -p 8000:8000 -v "$(pwd)/data:/app/data" -v "$(pwd)/log_files:/app/log_files" archelon-genesis:latest
+   ```
+
+5. Alternatively, use Docker Compose:
+   ```bash
+   docker-compose up -d
+   ```
 
 ## Usage
 
@@ -133,6 +182,10 @@ You can edit the `SYMBOLS` and `INTERVALS` lists in `download_multiple.py` to cu
 │   └── utils/              # Utility functions and decorators
 ├── .venv/                # Virtual environment (created during setup)
 ├── config.py             # Application configuration
+├── docker-build.sh       # Script to build Docker image
+├── docker-compose.yml    # Docker Compose configuration
+├── docker-run.sh         # Script to run Docker container
+├── Dockerfile            # Docker image definition
 ├── download_multiple.py  # Script to download data for multiple symbols
 ├── main.py               # CLI application entry point
 ├── record_data.py        # Script to record historical data
@@ -158,10 +211,55 @@ The price simulation logic is in `services/simulation/price_simulator.py`. You c
 - Implement different market conditions (trending, ranging, volatile)
 - Add support for simulating order execution
 
+### Docker Development
+
+#### Building and Testing Docker Images
+
+The project includes Docker support for development and deployment:
+
+1. **Building the image**:
+   ```bash
+   ./docker-build.sh
+   ```
+
+2. **Running the container**:
+   ```bash
+   ./docker-run.sh
+   ```
+
+3. **Using Docker Compose**:
+   ```bash
+   # Start services
+   docker-compose up -d
+
+   # View logs
+   docker-compose logs -f
+
+   # Stop services
+   docker-compose down
+   ```
+
+4. **Rebuilding after changes**:
+   ```bash
+   docker-compose up -d --build
+   ```
+
+#### Docker Image Customization
+
+You can customize the Docker image by editing the `Dockerfile`. For example:
+
+- Adding additional packages
+- Changing the base image
+- Modifying environment variables
+
 ### Running Tests
 
 ```bash
+# Running tests locally
 python -m pytest
+
+# Running tests in Docker
+docker run --rm archelon-genesis:latest python -m pytest
 ```
 
 ### Contributing

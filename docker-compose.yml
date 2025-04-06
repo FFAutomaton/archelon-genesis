@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  archelon-genesis:
+    build: .
+    image: archelon-genesis:latest
+    container_name: archelon-genesis
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./log_files:/app/log_files
+    restart: unless-stopped
