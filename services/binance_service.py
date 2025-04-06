@@ -1,133 +1,88 @@
-"""
-Binance Service Module
+from datetime import datetime
 
-This module provides a service for interacting with the Binance API
-using the python-binance package.
-"""
+import pandas as pd
+from binance import Client, BinanceAPIException, BinanceRequestException
 
-from binance.client import Client
-from binance.exceptions import BinanceAPIException, BinanceRequestException
-import logging
+from services.exchange_base import ExchangeBase
+from services.utils.health_decorator import binance_health_check
+from services.utils.retry_decorator import retry
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
 
-class BinanceService:
-    """
-    Service class for interacting with the Binance API.
-    
-    This class provides methods to fetch market data, account information,
-    and execute trades using the Binance API.
-    """
-    
-    def __init__(self, api_key=None, api_secret=None, testnet=False):
-        """
-        Initialize the BinanceService.
-        
-        Args:
-            api_key (str, optional): Binance API key. Defaults to None.
-            api_secret (str, optional): Binance API secret. Defaults to None.
-            testnet (bool, optional): Whether to use the testnet. Defaults to False.
-        """
-        self.api_key = api_key
-        self.api_secret = api_secret
-        self.testnet = testnet
-        
-        # Initialize client
-        if api_key and api_secret:
-            self.client = Client(api_key, api_secret, testnet=testnet)
-            logger.info("Initialized Binance client with API key")
-        else:
-            self.client = Client(None, None)
-            logger.info("Initialized Binance client without API key (limited functionality)")
-    
-    def get_exchange_info(self):
-        """
-        Get exchange information.
-        
-        Returns:
-            dict: Exchange information.
-        """
+class BinanceExchange(ExchangeBase):
+    # constants
+    MAX_RETRIES = 3
+    SLEEP_TIME = 1
+
+    max_candle_count = 100
+    contract_type = "PERPETUAL"
+
+    def __init__(self, secrets, logger=None):
+        super().__init__()
+        self.client = Client(secrets["api_key"], secrets["api_secret"])
+        self.logger = logger
+        if self.logger:
+            self.logger.info("Initializing Binance Exchange")
+        self.quantity_precisions = self.get_binance_spot_quantity_precisions()
+        if self.logger:
+            self.logger.info(f"Loaded {len(self.quantity_precisions)} quantity precisions from Binance")
+
+
+    @retry(max_retries=MAX_RETRIES, delay=SLEEP_TIME)
+    @binance_health_check()
+    def get_current_futures_price(self, symbol) -> float:
         try:
-            return self.client.get_exchange_info()
+            if self.logger:
+                self.logger.debug(f"Fetching current futures price for {symbol}")
+            ticker = self.client.futures_symbol_ticker(symbol=symbol)
+            price = float(ticker['price'])
+            if self.logger:
+                self.logger.info(f"Current futures price for {symbol}: {price}")
+            return price
         except (BinanceAPIException, BinanceRequestException) as e:
-            logger.error(f"Error getting exchange info: {e}")
-            return None
-    
-    def get_historical_klines(self, symbol, interval, start_str, end_str=None):
-        """
-        Get historical klines (candlestick data).
-        
-        Args:
-            symbol (str): Symbol to get klines for (e.g., 'BTCUSDT').
-            interval (str): Kline interval (e.g., '1m', '1h', '1d').
-            start_str (str): Start time in format 'YYYY-MM-DD' or timestamp.
-            end_str (str, optional): End time. Defaults to None.
-            
-        Returns:
-            list: List of klines.
-        """
+            if self.logger:
+                self.logger.error(f"Error fetching futures price for {symbol}: {e}")
+            raise e
+
+
+    @retry(max_retries=MAX_RETRIES, delay=SLEEP_TIME)
+    @binance_health_check()
+    def get_historical_data(self, symbol, interval):
         try:
-            return self.client.get_historical_klines(
-                symbol=symbol,
-                interval=interval,
-                start_str=start_str,
-                end_str=end_str
+            # Convert TimeInterval enum to string if needed
+            interval_str = interval.value if hasattr(interval, 'value') else interval
+
+            if self.logger:
+                self.logger.debug(f"Fetching historical data for {symbol} at {interval_str} interval")
+
+            candles = self.client.futures_continous_klines(
+                pair=symbol,
+                interval=interval_str,
+                contractType=self.__class__.contract_type,
+                limit=self.__class__.max_candle_count
             )
-        except (BinanceAPIException, BinanceRequestException) as e:
-            logger.error(f"Error getting historical klines: {e}")
-            return None
-    
-    def get_ticker_price(self, symbol=None):
-        """
-        Get ticker price for a symbol or all symbols.
-        
-        Args:
-            symbol (str, optional): Symbol to get price for. Defaults to None.
-            
-        Returns:
-            dict or list: Price data.
-        """
-        try:
-            return self.client.get_ticker(symbol=symbol)
-        except (BinanceAPIException, BinanceRequestException) as e:
-            logger.error(f"Error getting ticker price: {e}")
-            return None
-    
-    def get_account_info(self):
-        """
-        Get account information.
-        
-        Returns:
-            dict: Account information.
-        """
-        if not self.api_key or not self.api_secret:
-            logger.warning("API key and secret required for account information")
-            return None
-        
-        try:
-            return self.client.get_account()
-        except (BinanceAPIException, BinanceRequestException) as e:
-            logger.error(f"Error getting account info: {e}")
-            return None
 
+            if self.logger:
+                self.logger.debug(f"Received {len(candles)} candles for {symbol}")
 
-# Example usage
-if __name__ == "__main__":
-    # Initialize service without API credentials (read-only)
-    binance_service = BinanceService()
-    
-    # Get exchange information
-    exchange_info = binance_service.get_exchange_info()
-    if exchange_info:
-        print(f"Exchange status: {exchange_info['status']}")
-        print(f"Number of symbols: {len(exchange_info['symbols'])}")
-    
-    # Get Bitcoin price
-    btc_price = binance_service.get_ticker_price(symbol="BTCUSDT")
-    if btc_price:
-        print(f"Current BTC price: {btc_price['price']}")
+            data = [{
+                "time": candle[0],
+                "datetime": datetime.fromtimestamp(candle[0] / 1000).strftime('%Y-%m-%d %H:%M:%S'),
+                # Human readable time
+                "open": float(candle[1]),
+                "high": float(candle[2]),
+                "low": float(candle[3]),
+                "close": float(candle[4]),
+                "volume": float(candle[5])
+            } for candle in candles]
+
+            df = pd.DataFrame(data)
+            if self.logger:
+                self.logger.debug(f"Historical data processed for {symbol}, first timestamp: {data[0]['datetime']}, last: {data[-1]['datetime']}")
+            return df
+
+        except (BinanceAPIException, BinanceRequestException) as e:
+            if self.logger:
+                self.logger.error(f"Error fetching historical data for {symbol}: {e}")
+            else:
+                print(f"Error fetching historical data for {symbol}: {e}")
+            raise e
